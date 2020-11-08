@@ -9,7 +9,7 @@
  
 struct LCA {
   vector<vector<int>> anc;
-  vector<int> d, size;
+  vector<int> d;
   vector<vector<int>> adj;
   int lg;
  
@@ -18,12 +18,10 @@ struct LCA {
     for (int i = 1; i < lg; i++) {
       anc[i][v] = anc[i-1][anc[i-1][v]];
     }
-    size[v] = 1;
     for (int u : adj[v]) {
       if (u == p) continue;
       d[u] = d[v] + 1;
       Dfs(v, u);
-      size[v] += size[u];
     }
   }
  
@@ -53,7 +51,6 @@ struct LCA {
     adj = g;
     anc.assign(lg, vector<int>(n, 0));
     d.assign(n, 0);
-    size.assign(n, 0);
     Dfs(0, 0);
   }
 };
