@@ -33,7 +33,7 @@ struct SparseTable {
 };
 
 /**
- * Description: Answering LCA only in O(1) time with O(n) pre-processing (Implemented through RMQ)
+ * Description: Answering LCA only in O(1) time with O(nlogn) pre-processing (Implemented through RMQ)
  * Source: https://cp-algorithms.com/graph/lca.html
  * Verification: https://codeforces.com/contest/29/submission/97877045
  * Caution:
