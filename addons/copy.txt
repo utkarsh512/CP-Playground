@@ -1,0 +1,5 @@
+copy a.cpp b.cpp
+copy a.cpp c.cpp
+copy a.cpp d.cpp
+copy a.cpp e.cpp
+copy a.cpp f.cpp
