@@ -89,6 +89,9 @@ signed main() {
 #ifdef READ_FILE
   freopen("input.txt", "r", stdin);
 #endif
+#ifdef CHK_RNDM
+  freopen("output.txt", "w", stdout);
+#endif
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
   cout << fixed << setprecision(10);
