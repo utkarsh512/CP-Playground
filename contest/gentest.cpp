@@ -46,7 +46,9 @@ template <class T> ostream& operator<< (ostream& os, vector<T>& V) { for (auto& 
 template <class T = int> int bsl(vector<T> a, T x) { int lo = 0; int hi = sz(a) - 1; int req = -1; int mid = lo + (hi - lo) / 2; while (lo <= hi) { if (a[mid] <= x) { req = mid; lo = mid + 1; } else { hi = mid - 1; } mid = lo + (hi - lo) / 2; } return req; }
 template <class T = int> int bsg(vector<T> a, T x) { int lo = 0; int hi = sz(a) - 1; int req = -1; int mid = lo + (hi - lo) / 2; while (lo <= hi) { if (a[mid] >= x) { req = mid; hi = mid - 1; } else { lo = mid + 1; } mid = lo + (hi - lo) / 2; } return req; }
 
-template <typename Map>bool map_compare (Map const &lhs, Map const &rhs) { return lhs.size() == rhs.size() && std::equal(lhs.begin(), lhs.end(), rhs.begin());}
+template <typename Map> bool map_compare (Map const &lhs, Map const &rhs) { return lhs.size() == rhs.size() && std::equal(lhs.begin(), lhs.end(), rhs.begin());}
+template <class T> void remove_dups (vector<T>& V) { V.erase(unique(V.begin(), V.end()), V.end()); }
+
 auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
 mt19937_64 rng(seed);
 inline long long randint (long long l, long long r) { uniform_int_distribution<long long> dis(l, r); return dis(rng); }
@@ -71,6 +73,7 @@ inline void add(long long& a, long long b) {a = ((a % md) + (b % md)) % md;}
 inline void sub(long long& a, long long b) {a = ((a % md) - (b % md) + md) % md;}
 inline void mul(long long& a, long long b) {a = ((a % md) * (b % md)) % md;}
 inline long long gcd(long long a, long long b) { long long r; while (b) { r = a % b; a = b; b = r;} return a; }
+inline long long ceil_div(long long a, long long b) { return a / b + ((a ^ b) > 0 && a % b != 0); }
 
 template <class T>
 struct cmp {
@@ -82,23 +85,32 @@ struct cmp {
   typedef bool result_type;
 };
 
+#define MUTLIPLE_TEST_CASES 1
+
 signed main() {
-#ifdef READ_FILE
   freopen("input.txt", "w", stdout);
-#endif
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
   cout << fixed << setprecision(10);
-  int tt = 10;
-  cout << tt << "\n";
-  while (tt--) {
-    int n = randint(1, 50);
-    cout << n << "\n";
-    for (int i = 0; i < n; i++) {
-      int r = randint(1, 50);
-      cout << r << " ";
+  if (MUTLIPLE_TEST_CASES) {
+    int tt = 10;
+    cout << tt << "\n";
+    while (tt--) {
+      int n = 1000;
+      cout << n << "\n";
+      vector<int> a(n);
+      for (int i = 0; i < n; i++) {
+        a[i] = rng() % 1000 + i;
+      }
+      cout << a << "\n";
     }
-    cout << "\n";
+  } else {
+    int n = rng() % 1000;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+      a[i] = rng() % 1000 + i;
+    }
+    cout << a << "\n";
   }
   return 0;
 }
