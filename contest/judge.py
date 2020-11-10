@@ -103,9 +103,9 @@ if __name__ == '__main__':
     # if count of character in a line exceed this, it will be truncated
     datatypes = [int]
 
-    CM = 'g++ -pedantic -std=c++14 -DLOCAL -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
-    CO = 'g++ -pedantic -std=c++14 -DLOCAL -DREAD_FILE -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
-    CR = 'g++ -pedantic -std=c++14 -DLOCAL -DREAD_FILE -DCHK_RNDM -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
+    CM = 'g++ -pedantic -std=c++17 -DLOCAL -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
+    CO = 'g++ -pedantic -std=c++17 -DLOCAL -DREAD_FILE -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
+    CR = 'g++ -pedantic -std=c++17 -DLOCAL -DREAD_FILE -DCHK_RNDM -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
 
     getOutputs()
 
