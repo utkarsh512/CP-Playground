@@ -55,7 +55,7 @@ class TestCase:
     def parse(self, label):
         s = label.capitalize() + '\n'
         s += self.convert(self.__dict__[label])
-        s += '-' * 50 + '\n'
+        s += '\n' + '-' * 50 + '\n'
         return s
 
     def separate(self, s, dtype):
