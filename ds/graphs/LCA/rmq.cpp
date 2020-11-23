@@ -1,10 +1,25 @@
 /**
+ * Various implementations of LCA
+ * 
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------+
+ * | Data Structure & Algorithm Used | Preprocessing and Query Time  | Advantage over others                                           |
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------|
+ * | Segment Tree (Euler tour)       | P : O(N),     Q : O(logN)     | Trivial                                                         |
+ * | Sparse Table (Euler tour)       | P : O(NlogN), Q : O(1)        | Less complexity for query                                       |
+ * | Binary Lifting                  | P : O(NlogN), Q : O(logN)     | Expensive, but can be used to obtain any ancestor of a node     |
+ * | Farach-Colton (Bit-masking)     | P : O(N),     Q : O(1)        | Not used in CP afaik                                            |
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------|
+ */
+
+/**
  * Description: Computing min/max function in constant time
  * Source: tourist
  */
+
 #ifdef int
   #undef int
 #endif
+
 template <class T, class F = function<T (const T&, const T&)>>
 struct SparseTable {
   int n;
@@ -77,6 +92,5 @@ struct LCA {
     int left = first[u], right = first[v];
     if (left > right) swap(left, right);
     return rmq.get(left, right);
-
   }
 };
