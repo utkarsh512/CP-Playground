@@ -1,5 +1,15 @@
-#include <bits/stdc++.h>
-using namespace std;
+/**
+ * Various implementations of LCA
+ * 
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------+
+ * | Data Structure & Algorithm Used | Preprocessing and Query Time  | Advantage over others                                           |
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------|
+ * | Segment Tree (Euler tour)       | P : O(N),     Q : O(logN)     | Trivial                                                         |
+ * | Sparse Table (Euler tour)       | P : O(NlogN), Q : O(1)        | Less complexity for query                                       |
+ * | Binary Lifting                  | P : O(NlogN), Q : O(logN)     | Expensive, but can be used to obtain any ancestor of a node     |
+ * | Farach-Colton (Bit-masking)     | P : O(N),     Q : O(1)        | Not used in CP afaik                                            |
+ * +---------------------------------+-------------------------------+-----------------------------------------------------------------|
+ */
 
 struct LCA {
     vector<int> height, euler, first, segtree;
