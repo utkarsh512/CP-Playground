@@ -106,7 +106,7 @@ Mint C(int n, int k) {
 /**
  * Caution: 
  * 
- * 1. Dividing by Mint requires computation of its inverse which is not a constant
+ * 1. Division by Mint requires computation of its inverse which is not a constant
  *    time computation. Hence, compute the inverse once, and use it multiple times for better
- *    performance. [Nov 25, 2020]
+ *    performance.
  */
