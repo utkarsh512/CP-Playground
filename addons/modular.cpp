@@ -74,8 +74,6 @@ public:
   friend modnum operator / (const modnum& a, const modnum& b) { return modnum(a) /= b; }
 };
 
-const int md = 1e9 + 7;
-
 using Mint = modnum<md>;
 
 vector<Mint> fact(1, 1);
@@ -104,3 +102,11 @@ Mint C(int n, int k) {
   }
   return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
+
+/**
+ * Caution: 
+ * 
+ * 1. Dividing by Mint requires computation of its inverse which is not a constant
+ *    time computation. Hence, compute the inverse once, and use it multiple times for better
+ *    performance. [Nov 25, 2020]
+ */
