@@ -20,7 +20,7 @@ def getOutputs():
     os.system('a')
     os.system('{0} a.cpp'.format(CR))
     os.system('a')
-    os.system('{0} b.cpp'.format(CM))
+    os.system('{0} brute.cpp'.format(CM))
     os.system('a')
 
 class TestCase:
@@ -93,15 +93,15 @@ def run(testcase_id, testcase, testcase_output, testcase_answer, dtypes):
 
 
 if __name__ == '__main__':
-    multiple_testcases = True
+    multiple_testcases = False
     # True if we are dealing with multiple testcases, False otherwise
-    inputLineCount = 2
+    inputLineCount = 1
     # Number of lines per test case
     outputLineCount = 1
     # Number of lines in output of each test case
     maxLength = 256
     # if count of character in a line exceed this, it will be truncated
-    datatypes = [int]
+    datatypes = [int] * 300
 
     CM = 'g++ -pedantic -std=c++17 -DLOCAL -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
     CO = 'g++ -pedantic -std=c++17 -DLOCAL -DREAD_FILE -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal'
@@ -135,3 +135,4 @@ if __name__ == '__main__':
     testcases.close()
     output.close()
     answer.close()
+
