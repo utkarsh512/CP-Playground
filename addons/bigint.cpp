@@ -448,14 +448,6 @@ struct bigint {
     res.trim();
     return res;
   }
-
-  bigint log_2(const bigint& n) {
-    return (n > bigint(1ll))? bigint(1ll) + log_2(n / bigint(2ll)): bigint(0ll);
-  }
-
-  bigint log_10(const bigint& n) {
-    return (n > bigint(1ll))? bigint(1ll) + log_2(n / bigint(10ll)): bigint(0ll);
-  }
 };
 
 string to_string(bigint n) {
