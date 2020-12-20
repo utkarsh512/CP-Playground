@@ -20,6 +20,8 @@ struct dsu {
       if (rank[a] == rank[b]) rank[a]++;
     }
   }
+
+  dsu() {}
  
   dsu (int n) {
     parent.resize(n);
