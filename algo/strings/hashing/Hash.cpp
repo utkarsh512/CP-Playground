@@ -34,7 +34,7 @@ void pre() {
   }
 }
 
-struct StringHasher {
+struct Hash {
   string s;
   int length;
   vector<long long> pref, suf;
@@ -55,7 +55,9 @@ struct StringHasher {
     }
   }
 
-  StringHasher(const string& _s) : s(_s){
+  Hash() {}
+
+  Hash(string _s) : s(_s){
     length = sz(s);
     pref.assign(length, 0);
     suf.assign(length, 0);
