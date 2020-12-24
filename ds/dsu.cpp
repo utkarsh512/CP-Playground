@@ -6,7 +6,7 @@ struct dsu {
     return parent[v] = find(parent[v]);
   }
  
-  bool connected (int a, int b) {
+  bool ask (int a, int b) {
     a = find(a); b = find(b);
     return (a == b);
   }
