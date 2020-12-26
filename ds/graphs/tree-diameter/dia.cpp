@@ -23,8 +23,8 @@ struct TD {
     return lol.ff + 1;
   }
 
-  int td() {
-    Dfs(0, 0);
+  int run(int u = 0) {
+    Dfs(u, u);
     return ans;
   }
 
