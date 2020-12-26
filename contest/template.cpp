@@ -3,7 +3,6 @@
 #include <ext/pb_ds/tree_policy.hpp> 
 using namespace __gnu_pbds;
 using namespace std;
-using pi = pair<int, int>;
 
 #ifdef LOCAL
 string to_string(const string& s) {return '"' + s + '"';}
@@ -37,6 +36,7 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 #define eb emplace_back
 #define ff first
 #define ss second
+#define pi pair<int, int>
 
 template <class L, class R> istream& operator>> (istream& is, pair<L, R>& P) { return is >> P.ff >> P.ss; }
 template <class T> istream& operator>> (istream& is, vector<T>& V) { for (auto& e : V) is >> e; return is; }
