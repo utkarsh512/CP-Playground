@@ -3,28 +3,31 @@
 #include <ext/pb_ds/tree_policy.hpp> 
 using namespace __gnu_pbds;
 using namespace std;
-using ll = long long;
-using ld = long double;
 using pi = pair<int, int>;
 
 #ifdef LOCAL
-template <typename A, typename B> string to_string(pair<A, B> p);
-template <typename A, typename B, typename C> string to_string(tuple<A, B, C> p);
-template <typename A, typename B, typename C, typename D> string to_string(tuple<A, B, C, D> p);
 string to_string(const string& s) {return '"' + s + '"';}
 string to_string(const char* s) {return to_string((string) s);}
 string to_string(bool b) {return (b ? "true" : "false");}
 string to_string(vector<bool> v) {bool first = true;string res = "{";for (int i = 0; i < static_cast<int>(v.size()); i++) {if (!first) {res += ", ";}first = false;res += to_string(v[i]);}res += "}";return res;}
-template <size_t N>string to_string(bitset<N> v) {string res = "";for (size_t i = 0; i < N; i++) {res += static_cast<char>('0' + v[i]);}return res;}
-template <typename A>string to_string(A v) {bool first = true;string res = "{";for (const auto &x : v) {if (!first) {res += ", ";}first = false;res += to_string(x);}res += "}";return res;}
-template <typename A, typename B>string to_string(pair<A, B> p) {return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";}
-template <typename A, typename B, typename C>string to_string(tuple<A, B, C> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";}
-template <typename A, typename B, typename C, typename D>string to_string(tuple<A, B, C, D> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";}
-void debug_out() { cerr << "\n"; }
-template <typename Head, typename... Tail>void debug_out(Head H, Tail... T) {cerr << " " << to_string(H);debug_out(T...);}
-#define debug(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+template <size_t N> string to_string(bitset<N> v) {string res = "";for (size_t i = 0; i < N; i++) {res += static_cast<char>('0' + v[i]);}return res;}
+template <class A, class B> string to_string(pair<A, B> p) {return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";}
+template <class A, class B, class C> string to_string(tuple<A, B, C> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";}
+template <class A, class B, class C, class D> string to_string(tuple<A, B, C, D> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";}
+template <class A> string to_string(A v) {bool first = true;string res = "{";for (const auto &x : v) {if (!first) {res += ", ";}first = false;res += to_string(x);}res += "}";return res;}
+#define debug(...) __f(#__VA_ARGS__, __VA_ARGS__)
+template <class Arg1>
+void __f(const char* name, Arg1&& arg1){
+  cerr << name << " : " << to_string(arg1) << "\n";
+}
+template <class Arg1, class... Args>
+void __f(const char* names, Arg1&& arg1, Args&&... args){
+  const char* comma = strchr(names + 1, ',');
+  cerr.write(names, comma - names) << " : " << to_string(arg1) <<" | ";
+  __f(comma+1, args...);
+}
 #else
-#define debug(...) 42
+#define debug(...) 69
 #endif
 
 #define int long long
@@ -45,15 +48,13 @@ auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
 mt19937_64 rng(seed);
 inline long long gcd(long long a, long long b) { long long r; while (b) { r = a % b; a = b; b = r;} return a; }
 inline long long ceil_div(long long a, long long b) { return a / b + ((a ^ b) > 0 && a % b != 0); }
-inline long long randint (long long l, long long r) { uniform_int_distribution<long long> dis(l, r); return dis(rng); }
-inline double random (double l, double r) { uniform_real_distribution<double> dis(l, r); return dis(rng); }
-inline double randn() { normal_distribution<double> dis; return dis(rng); }
-inline double rdn (double std_dev, double mean) { return std_dev * randn() + mean; }
+inline long long rnd (long long l, long long r) { uniform_int_distribution<long long> dis(l, r); return dis(rng); }
 
 const int infi = 2e9;
 const long long infl = 4e18;
 const int md = 998244353;
 const double PI = 3.14159265358979323846;
+const double eps = 1e-8;
 
 template <class T>
 struct cmp {
