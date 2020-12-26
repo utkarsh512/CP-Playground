@@ -1,72 +1,22 @@
-#include <bits/stdc++.h>
-using namespace std;
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
-using namespace __gnu_pbds;
-
 #ifdef LOCAL
-template<class T, size_t N> ostream& operator<<(ostream &os, array<T, N> A) {
-  os << "[ ";
-  for (size_t i = 0; i < N; i++) os << A[i] << " ";
-  return os << "]";
-}
-
-template<class T> ostream& operator<<(ostream &os, vector<T> V) {
-  os << "[ ";
-  for(auto v : V) os << v << " ";
-  return os << "]";
-}
-
-template<class T> ostream& operator<<(ostream &os, set<T> S){
-  os << "{ ";
-  for(auto s : S) os << s << " ";
-  return os << "}";
-}
-
-template<class T> ostream& operator<<(ostream &os, unordered_set<T> S){
-  os << "{ ";
-  for(auto s : S) os << s << " ";
-  return os << "}";
-}
-
-template<class T> ostream& operator<<(ostream &os, ordered_set<T> S){
-  os << "{ ";
-  for(auto s : S) os << s << " ";
-  return os << "}";
-}
-
-template<class L, class R> ostream& operator<<(ostream &os, pair<L,R> P) {
-  return os << "(" << P.first << "," << P.second << ")";
-}
-
-template<class L, class R> ostream& operator<<(ostream &os, map<L,R> M) {
-  os << "{ ";
-  for(auto m:M) os << "(" << m.first << ": "<< m.second << ") ";
-  return os << "}";
-}
-
-template<class L, class R> ostream& operator<<(ostream &os, unordered_map<L,R> M) {
-  os << "{ ";
-  for(auto m:M) os<<"("<<m.first<<":"<<m.second<<") ";
-  return os<<"}";
-}
-
-template<class L, class R, class chash = std::hash<R> > ostream& operator<<(ostream &os, gp_hash_table<L,R,chash> M) {
-  os << "{ ";
-  for(auto m:M) os << "(" << m.first << ":" << m.second << ") ";
-  return os << "}" ;
-}
-
+string to_string(const string& s) {return '"' + s + '"';}
+string to_string(const char* s) {return to_string((string) s);}
+string to_string(bool b) {return (b ? "true" : "false");}
+string to_string(vector<bool> v) {bool first = true;string res = "{";for (int i = 0; i < static_cast<int>(v.size()); i++) {if (!first) {res += ", ";}first = false;res += to_string(v[i]);}res += "}";return res;}
+template <size_t N> string to_string(bitset<N> v) {string res = "";for (size_t i = 0; i < N; i++) {res += static_cast<char>('0' + v[i]);}return res;}
+template <class A, class B> string to_string(pair<A, B> p) {return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";}
+template <class A, class B, class C> string to_string(tuple<A, B, C> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";}
+template <class A, class B, class C, class D> string to_string(tuple<A, B, C, D> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";}
+template <class A> string to_string(A v) {bool first = true;string res = "{";for (const auto &x : v) {if (!first) {res += ", ";}first = false;res += to_string(x);}res += "}";return res;}
 #define debug(...) __f(#__VA_ARGS__, __VA_ARGS__)
-template <typename Arg1>
+template <class Arg1>
 void __f(const char* name, Arg1&& arg1){
-  cerr << name << " : " << arg1 << "\n";
+  cerr << name << " : " << to_string(arg1) << "\n";
 }
-
-template <typename Arg1, typename... Args>
+template <class Arg1, class... Args>
 void __f(const char* names, Arg1&& arg1, Args&&... args){
   const char* comma = strchr(names + 1, ',');
-  cerr.write(names, comma - names) << " : " << arg1 <<" | ";
+  cerr.write(names, comma - names) << " : " << to_string(arg1) <<" | ";
   __f(comma+1, args...);
 }
 #else
