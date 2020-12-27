@@ -1,15 +1,11 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-const int infi = 2e9;
-
 /**
  * Description : Transforms a permutation to its next lexicographical permutation
+ *               C++ STL already provides the utility to do so, this is just how that utility works
  * Complexity  : O(NlogN)
  * Verification: Self
  */
 
-void next_shuffle (vector<int>& a) {
+void next_permutation (vector<int>& a) {
   int n = (int)a.size();
   int idx = n - 1;
   for (int i = n - 2; i >= 0; i--) {
@@ -29,4 +25,6 @@ void next_shuffle (vector<int>& a) {
   }
   swap(a[idx - 1], a[pos]);
   sort(a.begin() + idx, a.end());
+  // C++ STL returns true / false as well
+  // True if the vector was changes, false otherwise
 }
