@@ -1,4 +1,5 @@
 // Computing smallest prime factor as sieve in O(nloglogn)
+// Largest prime factor can be computed by removing (a[j] == 0) condition
 vector<int> spf(int n) {
   n++;
   vector<int> a(n);
