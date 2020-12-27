@@ -26,5 +26,5 @@ void next_permutation (vector<int>& a) {
   swap(a[idx - 1], a[pos]);
   sort(a.begin() + idx, a.end());
   // C++ STL returns true / false as well
-  // True if the vector was changes, false otherwise
+  // True if the vector was changed, false otherwise
 }
