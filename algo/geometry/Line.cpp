@@ -24,7 +24,9 @@ struct Line {
     */
 
     T z = (T)sqrt(a * a + b * b);
-    a /= z; b /= z; c /= z;
+    if (z > eps) {
+      a /= z; b /= z; c /= z;
+    }
     if (a < (-eps) || (abs(a) < eps && b < (-eps))) {
       a *= -1; b *= -1; c *= -1;
     }
