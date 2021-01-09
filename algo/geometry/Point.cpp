@@ -39,7 +39,7 @@ struct Point {
   Point operator*(const T& k) const {
     return Point(*this) *= k;
   }
-  Point operator/(cosnt T& k) const {
+  Point operator/(const T& k) const {
     return Point(*this) /= k;
   }
   friend Point operator*(T k, Point self) {
