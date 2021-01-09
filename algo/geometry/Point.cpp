@@ -1,12 +1,5 @@
-/**
- * Description: Handling points in 2D
- * Caution:
- * * while using it with 'Line' module, make the class 'T' explicit
- */
-
 template <class T>
 struct Point {
-  //using T = int;
   T x, y;
   Point() {}
   Point(T x_, T y_) : x(x_), y(y_) {}
@@ -41,6 +34,12 @@ struct Point {
   }
   Point operator/(const T& k) const {
     return Point(*this) /= k;
+  }
+  T cross(const Point& oth) const {
+    return x * oth.y - y * oth.x;
+  }
+  T cross(const Point& P, const Point& Q) const {
+    return (P - *this).cross(Q - *this);
   }
   friend Point operator*(T k, Point self) {
     return self * k;
