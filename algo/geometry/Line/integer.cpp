@@ -12,7 +12,7 @@ struct Line {
   long long a, b, c;
   Line() {}
   Line(long long a_, long long b_, long long c_) : a(a_), b(b_), c(c_) {}
-  Line(const Point& P, const Point& Q) {
+  Line(const Point<long long>& P, const Point<long long>& Q) {
     a = P.y - Q.y;
     b = Q.x - P.x;
     c = -1LL * (a * P.x + b * P.y);
