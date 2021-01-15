@@ -1,5 +1,5 @@
 struct dsu {
-  vector<int> parent, rank;
+  vector<int> parent, size;
  
   int find (int v) {
     if (v == parent[v]) return v;
@@ -15,9 +15,9 @@ struct dsu {
     a = find(a);
     b = find(b);
     if (a != b) {
-      if (rank[a] < rank[b]) swap(a, b);
+      if (size[a] < size[b]) swap(a, b);
       parent[b] = a;
-      if (rank[a] == rank[b]) rank[a]++;
+      size[a] += size[b];
     }
   }
 
@@ -25,7 +25,8 @@ struct dsu {
  
   dsu (int n) {
     parent.resize(n);
-    rank.resize(n);
+    size.assign(n, 1);
     iota(all(parent), 0LL);
   }
 };
+
