@@ -1,10 +1,15 @@
+#ifndef LOCAL
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#endif
+
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
 using namespace __gnu_pbds;
 using namespace std;
 
-#ifdef LOCAL
 string to_string(const string& s) {return '"' + s + '"';}
 string to_string(const char* s) {return to_string((string) s);}
 string to_string(bool b) {return (b ? "true" : "false");}
@@ -14,17 +19,21 @@ template <class A, class B> string to_string(pair<A, B> p) {return "(" + to_stri
 template <class A, class B, class C> string to_string(tuple<A, B, C> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";}
 template <class A, class B, class C, class D> string to_string(tuple<A, B, C, D> p) {return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";}
 template <class A> string to_string(A v) {bool first = true;string res = "{";for (const auto &x : v) {if (!first) {res += ", ";}first = false;res += to_string(x);}res += "}";return res;}
-#define debug(...) __f(#__VA_ARGS__, __VA_ARGS__)
+
 template <class Arg1>
 void __f(const char* name, Arg1&& arg1){
   cerr << name << " : " << to_string(arg1) << "\n";
 }
+
 template <class Arg1, class... Args>
 void __f(const char* names, Arg1&& arg1, Args&&... args){
   const char* comma = strchr(names + 1, ',');
   cerr.write(names, comma - names) << " : " << to_string(arg1) <<" | ";
   __f(comma+1, args...);
 }
+
+#ifdef LOCAL
+#define debug(...) __f(#__VA_ARGS__, __VA_ARGS__)
 #else
 #define debug(...) 69
 #endif
@@ -48,7 +57,7 @@ auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
 mt19937_64 rng(seed);
 inline long long gcd(long long a, long long b) { long long r; while (b) { r = a % b; a = b; b = r;} return a; }
 inline long long ceil_div(long long a, long long b) { return a / b + ((a ^ b) > 0 && a % b != 0); }
-inline long long rnd (long long l, long long r) { uniform_int_distribution<long long> dis(l, r); return dis(rng); }
+inline long long rnd(long long l, long long r) { uniform_int_distribution<long long> dis(l, r); return dis(rng); }
 
 const int infi = 2e9;
 const long long infl = 4e18;
@@ -67,12 +76,6 @@ struct cmp {
 };
 
 signed main() {
-#ifdef READ_FILE
-  freopen("input.txt", "r", stdin);
-#endif
-#ifdef CHK_RNDM
-  freopen("output.txt", "w", stdout);
-#endif
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
   cout << fixed << setprecision(10);
