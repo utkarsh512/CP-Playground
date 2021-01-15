@@ -1,4 +1,2 @@
-doskey cm = g++ -pedantic -std=c++17 -DLOCAL -O2 -Wall -Wl,--stack=268435456 $*.cpp -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal
-doskey co = g++ -pedantic -std=c++17 -DLOCAL -DREAD_FILE -O2 -Wall -Wl,--stack=268435456 $*.cpp -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal
-doskey cr = g++ -pedantic -std=c++17 -DLOCAL -DREAD_FILE -DCHK_RNDM -O2 -Wall -Wl,--stack=268435456 $*.cpp -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal
+doskey c = g++ -pedantic -std=c++17 -DLOCAL -O2 -Wall -Wl,--stack=268435456 $*.cpp -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal
 cd Documents\cpp\contest
