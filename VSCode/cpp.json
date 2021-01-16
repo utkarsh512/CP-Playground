@@ -1043,12 +1043,6 @@
 	"Template code": {
 		"prefix": "make",
 		"body": [
-			"#ifndef LOCAL\r",
-			"#pragma GCC optimize(\"Ofast\")\r",
-			"#pragma GCC optimize(\"unroll-loops\")\r",
-			"#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native\")\r",
-			"#endif\r",
-			"\r",
 			"#include <bits/stdc++.h>\r",
 			"#include <ext/pb_ds/assoc_container.hpp> \r",
 			"#include <ext/pb_ds/tree_policy.hpp> \r",
