@@ -35,6 +35,9 @@ struct Point {
   Point operator/(const T& k) const {
     return Point(*this) /= k;
   }
+  T dot(const Point& oth) const {
+    return x * oth.x + y * oth.y;
+  }
   T cross(const Point& oth) const {
     return x * oth.y - y * oth.x;
   }
