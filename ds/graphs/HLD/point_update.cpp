@@ -1,7 +1,7 @@
 /**
  * Description: Heavy-light decomposition for point updates
  * Complexity: Query - O((logN)^2); Update - O(logN)
- * Caution: SZ is the maxnimum number of vertices (in powers of 2) and the tree must be rooted
+ * Caution: SZ is the maximum number of vertices (in powers of 2) and the tree must be rooted
  * Source: https://cp-algorithms.com/graph/hld.html
  */
 
