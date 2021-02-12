@@ -41,12 +41,15 @@ Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\
   * __lca__: Computing lca using rmq
   * __lca_binarylift__: Computing lca using binary lift
   * __lca_seg__: Computing lca using segment tree
+* #### Heavy-light decomposition
+  * __hld_point__: HLD decomposition considering _point_ updates
+  * __hld_range__: HLD decomposition considering _range_ updates
   
 ### Geometry
 * __point__: 2d points
 * __line_int__: 2d straight lines
 * __line_double__: 2d straight lines
-* __dynamic_hull__: Finding optimal `ax + b` for given `x` using _convex hull trick_.
+* __dynamic_hull__: Finding optimal `ax + b` for given `x` using _convex hull trick_
 
 ### Debugging
 * __debug__: Debugging utility (except `__int128` integers and static arrays)
