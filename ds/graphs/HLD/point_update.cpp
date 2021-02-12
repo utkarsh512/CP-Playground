@@ -1,8 +1,7 @@
 /**
  * Description: Heavy-light decomposition for point updates
  * Complexity: Query - O((logN)^2); Update - O(logN)
- * Caution: SZ is the maximum number of vertices (in powers of 2) and the tree must be rooted
- * Source: https://cp-algorithms.com/graph/hld.html
+ * Caution: SZ is the maxnimum number of vertices (in powers of 2) and the tree must be rooted
  */
 
 template <class T, int SZ>
@@ -28,7 +27,7 @@ struct HeavyLight {
     return size;
   }
 
-  int decomp(int v, int h) {
+  void decomp(int v, int h) {
     head[v] = h;
     pos[v] = cur_pos++; // position of v in segtree
     if (~heavy[v]) {
