@@ -1,0 +1,3 @@
+doskey cm = g++ -pedantic -std=c++17 -o sol sol.cpp -DLOCAL -O2 -Wall -Wl,--stack=268435456 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -Wfloat-equal
+cd Documents\cpp\contest
+doskey cp = copy ..\template.cpp sol.cpp
