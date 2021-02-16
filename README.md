@@ -21,8 +21,8 @@ Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\
 * __fenwick__: Fenwick tree for prefix sums
 * __rmq__: Sparse table
 * #### Segment Tree
-  * __segtree__: Segment tree (without lazy propagation)
-  * __lazysegtree__: Segment tree (with lazy propagation)
+  * __seg__: Segment tree (without lazy propagation)
+  * __lazy__: Segment tree (with lazy propagation)
   
 ### String Algorithms
 * __z_function__: Computing Z-values
