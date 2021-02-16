@@ -1,14 +1,14 @@
 /**
- * Description: Template for Segment Tree without Lazy Propagation
- * How to use:
- *  SZ -> maximum length of the array (in powers of 2)
- *  init:
- *    SegTree<int, (1 << 18)> seg;
+ * Description: Template for Segment Tree
+ * 
+ * Tutorial:
+ *  SZ is maximum length of the array (in powers of 2)
+ *  This segment tree is 1-indexed
+ *  initialization: SegTree<int, (1 << 18)> seg;
  *  operation:
- *    build  -> seg.build(a); Note: a must be zero-indexed
- *    update -> seg.update(pos, inc);
- *    query  -> seg.query(L, R);
- * Source: self
+ *    build:  seg.build(a) [a must be zero-indexed]
+ *    update: seg.update(L, R, inc);
+ *    query:  seg.query(L, R);
  */
 
 template <class T, int SZ>
