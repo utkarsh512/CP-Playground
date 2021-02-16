@@ -1,14 +1,14 @@
 /**
  * Description: Template for Lazy Segment Tree
- * How to use:
- *  SZ -> maximum length of the array (in powers of 2)
- *  init:
- *    LazySegTree<int, (1 << 18)> seg;
+ * 
+ * Tutorial:
+ *  SZ is maximum length of the array (in powers of 2)
+ *  This segment tree is 1-indexed
+ *  initialization: LazySegTree<int, (1 << 18)> seg;
  *  operation:
- *    build  -> seg.build(a); Note: a must be zero-indexed
- *    update -> seg.update(L, R, inc);
- *    query  -> seg.query(L, R);
- * Source: self
+ *    build:  seg.build(a) [a must be zero-indexed]
+ *    update: seg.update(L, R, inc);
+ *    query:  seg.query(L, R);
  */
 
 template <class T, int SZ>
@@ -23,12 +23,13 @@ struct LazySegTree {
 
   void push (int v, int tl, int tr) {
     if (tl != tr) {
+      // lazy prop
       lazy[2*v] += lazy[v];
       lazy[2*v+1] += lazy[v];
     }
     // operation
     t[v] += (tr - tl + 1) * lazy[v];
-    lazy[v] = 0;
+    lazy[v] = 0; // reset
   }
 
   void pull (int v) {
@@ -50,6 +51,7 @@ struct LazySegTree {
     push(v, tl, tr);
     if (l > tr || r < tl) return;
     if (l <= tl && tr <= r) {
+      // operation
       lazy[v] += inc;
       push(v, tl, tr);
     } else {
