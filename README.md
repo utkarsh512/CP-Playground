@@ -30,7 +30,7 @@ Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\
 * __string_hash__: Rabin-karp hashing
 * #### Trie
   * __trie__: Trie of strings
-  * __trie__: Trie of bits
+  * __trie_int__: Trie of bits
 
 
 ### Graph Theory
