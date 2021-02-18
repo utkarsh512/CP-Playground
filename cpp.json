@@ -150,37 +150,6 @@
 		],
 		"description": "Policy-based data structures"
 	},
-	"fenwick": {
-		"prefix": "fenwick",
-		"body": [
-			"template <class T>\r",
-			"struct fenwick {\r",
-			"  vector<T> a;\r",
-			"  int n;\r",
-			"\r",
-			"  fenwick() {}\r",
-			"\r",
-			"  fenwick(int n_) : n(n_) {\r",
-			"    a.resize(n);\r",
-			"  }\r",
-			"\r",
-			"  T query(int r) {\r",
-			"    T sum = 0;\r",
-			"    for (; r >= 0; r = (r & (r + 1)) - 1) {\r",
-			"      sum += a[r];\r",
-			"    }\r",
-			"    return sum;\r",
-			"  }\r",
-			"\r",
-			"  void add(int idx, T del) {\r",
-			"    for (; idx < n; idx = idx | (idx + 1)) {\r",
-			"      a[idx] += del;\r",
-			"    }\r",
-			"  }\r",
-			"};"
-		],
-		"description": "Fenwick tree for prefix sums"
-	},
 	"Sparse Table": {
 		"prefix": "rmq",
 		"body": [
@@ -1950,5 +1919,39 @@
 			"};"
 		],
 		"description": ""
+	},
+	"Fenwick tree": {
+		"prefix": "fenwick",
+		"body": [
+			"template <class T>\r",
+			"struct fenwick {\r",
+			"  vector<T> a;\r",
+			"  int n;\r",
+			"\r",
+			"  fenwick() {}\r",
+			"\r",
+			"  fenwick(int n_) : n(n_) {\r",
+			"    // initialization\r",
+			"    a.assign(n, (T)0);\r",
+			"  }\r",
+			"\r",
+			"  T query(int r) {\r",
+			"    T q = 0; // out-of-bound values\r",
+			"    for (; r >= 0; r = (r & (r + 1)) - 1) {\r",
+			"      // operation\r",
+			"      q += a[r];\r",
+			"    }\r",
+			"    return q;\r",
+			"  }\r",
+			"\r",
+			"  void update(int idx, T val) {\r",
+			"    for (; idx < n; idx = idx | (idx + 1)) {\r",
+			"      // operation\r",
+			"      a[idx] += val;\r",
+			"    }\r",
+			"  }\r",
+			"};"
+		],
+		"description": "Fenwick tree"
 	}
 }
