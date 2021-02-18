@@ -6,20 +6,23 @@ struct fenwick {
   fenwick() {}
 
   fenwick(int n_) : n(n_) {
-    a.resize(n);
+    // initialization
+    a.assign(n, (T)0);
   }
 
   T query(int r) {
-    T sum = 0;
+    T q = 0; // out-of-bound values
     for (; r >= 0; r = (r & (r + 1)) - 1) {
-      sum += a[r];
+      // operation
+      q += a[r];
     }
-    return sum;
+    return q;
   }
 
-  void add(int idx, T del) {
+  void update(int idx, T val) {
     for (; idx < n; idx = idx | (idx + 1)) {
-      a[idx] += del;
+      // operation
+      a[idx] += val;
     }
   }
 };
