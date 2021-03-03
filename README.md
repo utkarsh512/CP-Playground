@@ -1,10 +1,8 @@
-## Tips and Tricks
-* [CP Tricks](https://docs.google.com/document/d/1Sossda-mELiHf7eG8afoBE1goZi10LKIlsTOFA6lSjE/)
+## VSCode & Sublime-Text Snippets - Getting the most out of the repository
+* __VS Code__: Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\cpp.json` to use the codes using VSCode snippets utility.
+* __Sublime-Text__: Copy the files inside `sublime-snippet` to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User` to enable tab triggers in Sublime-Text.
 
-## VSCode Snippets - Getting the most out of the repository
-Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\cpp.json` to use the codes using VSCode snippets utility.
-
-## Prefix to be used
+## Prefix / Tab triggers to be used
 
 ### Number Theory
 * __modular__: Handling modular integers
