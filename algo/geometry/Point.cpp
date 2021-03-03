@@ -47,4 +47,14 @@ struct Point {
   friend Point operator*(T k, Point self) {
     return self * k;
   }
+  friend istream& operator>> (istream& is, Point& P) { 
+    return is >> P.x >> P.y;
+  }
+  friend ostream& operator<< (ostream& os, Point& P) {
+    return os << P.x << " " << P.y;
+  }
+  friend string to_string(Point P) {
+    string res = "(" + to_string(P.x) + ", " + to_string(P.y) + ")";
+    return res;
+  }
 };
