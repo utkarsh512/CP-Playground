@@ -1,6 +1,11 @@
 ## VSCode & Sublime-Text Snippets - Getting the most out of the repository
 * __VS Code__: Copy `cpp.json` file to `C:\Users\{username}\AppData\Roaming\Code\User\snippets\cpp.json` to use the codes using VSCode snippets utility.
+
+![](gif/vscode_snippet.gif)
+
 * __Sublime-Text__: Copy the files inside `sublime-snippet` to `C:\Users\{username}\AppData\Roaming\Sublime Text 3\Packages\User` to enable tab triggers in Sublime-Text.
+
+![](gif/sublime_snippet.gif)
 
 ## Prefix / Tab triggers to be used
 
