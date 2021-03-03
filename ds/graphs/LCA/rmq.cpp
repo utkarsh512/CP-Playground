@@ -16,10 +16,6 @@
  * Source: tourist
  */
 
-#ifdef int
-  #undef int
-#endif
-
 template <class T, class F = function<T (const T&, const T&)>>
 struct SparseTable {
   int n;
@@ -30,7 +26,7 @@ struct SparseTable {
 
   SparseTable (const vector<T>& a, const F& f) : func(f) {
     n = static_cast<int>(a.size());
-    int maxlg = 32 - __builtin_clz(n);
+    int maxlg = 64 - __builtin_clzll(n);
     st.resize(maxlg);
     st[0] = a;
     for (int j = 1; j < maxlg; j++) {
@@ -42,7 +38,7 @@ struct SparseTable {
   }
 
   T get (int l, int r) const {
-    int lg = 32 - __builtin_clz(r - l + 1) - 1;
+    int lg = 64 - __builtin_clzll(r - l + 1) - 1;
     return func(st[lg][l], st[lg][r - (1 << lg) + 1]);
   }
 };
@@ -51,8 +47,6 @@ struct SparseTable {
  * Description: Answering LCA only in O(1) time with O(nlogn) pre-processing (Implemented through RMQ)
  * Source: https://cp-algorithms.com/graph/lca.html
  * Verification: https://codeforces.com/contest/29/submission/97877045
- * Caution:
- *  * int has been undefined, so have to use long long wherever necessary
  */
 
 struct LCA {
