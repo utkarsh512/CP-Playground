@@ -13,7 +13,7 @@
 * __modular__: Handling modular integers
 * __matrix__: Matrix with binary exponentiation utility
 * __phi__: Euler totient function (for given integer only)
-* __phi_1_to_n__: Computing totient function for `1, 2, ..., n`
+* __phi_1_to_n__: Computing totient function for $1, 2, ..., n$
 * __spf__: Sieve of smallest prime factors
 * __primes__: Getting all the primes number within given upper bound
 
@@ -52,7 +52,7 @@
 * __point__: 2d points
 * __line_int__: 2d straight lines
 * __line_double__: 2d straight lines
-* __dynamic_hull__: Finding optimal `ax + b` for given `x` using _convex hull trick_
+* __dynamic_hull__: Finding optimal $ax + b$ for given $x$ using _convex hull trick_
 
 ### Debugging
 * __debug__: Debugging utility (except `__int128` integers and static arrays)
