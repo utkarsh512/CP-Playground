@@ -26,6 +26,9 @@
 * #### Segment Tree
   * __seg__: Segment tree (without lazy propagation)
   * __lazy__: Segment tree (with lazy propagation)
+* #### Sqrt Decomposition
+  * __mo1__: Query structure for Mo's algorithm
+  * __mo2__: For updating range to current query
   
 ### String Algorithms
 * __z_function__: Computing Z-values
