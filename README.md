@@ -43,6 +43,7 @@
 * __centroid__: Centroid of each subtree in a tree
 * __diameter__: Diameter of a tree
 * __scc__: Kosaraju' algorithm for strongly connected components
+* __digraph__: Directed graphs with edges over a range (See [this](https://codeforces.com/contest/786/problem/B))
 * #### LCA
   * __lca__: Computing lca using rmq
   * __lca_binarylift__: Computing lca using binary lift
