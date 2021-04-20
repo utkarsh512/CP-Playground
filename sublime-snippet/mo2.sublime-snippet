@@ -1,7 +1,5 @@
 <snippet>
 	<content><![CDATA[
-  int m;
-  cin >> m;
   vector<Query> Q(m);
   for (int i = 0; i < m; i++) {
     int l, r;
@@ -13,21 +11,21 @@
   vector<int> res(m);
   int l = 0, r = -1;
   for (Query q : Q) {
-    while (l < q.l) {
-      remove(l);
-      l++;
+    while (r < q.r) {
+      r++;
+      add(r);
     }
     while (l > q.l) {
       l--;
       add(l);
     }
-    while (r < q.r) {
-      r++;
-      add(r);
-    }
     while (r > q.r) {
       remove(r);
       r--;
+    }
+    while (l < q.l) {
+      remove(l);
+      l++;
     }
     res[q.idx] = ans;
   }
