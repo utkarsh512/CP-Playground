@@ -60,5 +60,7 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
 
 
 ## Other References for Competitive Programming
+* [tourist's templates](https://github.com/utkarsh512/gennady-korotkevich-implementions)
+* [Everything for CP](https://github.com/utkarsh512/Everything-for-CP)
 * [Benq Codes](https://github.com/bqi343/USACO)
 * [KTH Resources](https://github.com/kth-competitive-programming/kactl)
