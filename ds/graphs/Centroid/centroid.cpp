@@ -24,7 +24,7 @@ struct Centroid {
   }
 
   void Solve (int u) {
-    if (sz(g[u]) == 0) {
+    if (sz(g[u]) == 0) { // Change to sz(g[u]) == 1 if the tree is not given as directed tree
       c[u] = u;
       return;
     }
