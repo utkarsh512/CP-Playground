@@ -58,9 +58,8 @@ struct LCA {
   }
  
   LCA (vector<vector<int>>& g) {
-    int n = static_cast<int>(g.size());
-    int lg = static_cast<int>(ceil(log2l(static_cast<ld>(n))));
-    this->lg = lg;
+    int n = sz(g);
+    lg = 64 - __builtin_clzll(n);
     adj = g;
     anc.assign(lg, vector<int>(n, 0));
     d.assign(n, 0);
