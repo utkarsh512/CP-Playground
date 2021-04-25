@@ -32,7 +32,7 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
 * __string_hash__: Rabin-karp hashing
 * #### Trie
   * __trie__: Trie of strings
-  * __trie_int__: Trie of bits
+  * __trie_bit__: Trie of bits
 
 
 ### Graph Theory
