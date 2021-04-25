@@ -8,6 +8,7 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
 ### Number Theory
 * __modular__: Handling modular integers
 * __matrix__: Matrix with binary exponentiation utility
+* __monoid__: Storing floating points in `p/q` format
 * __phi__: Euler totient function (for given integer only)
 * __phi_1_to_n__: Computing totient function for `1, 2, ..., n`
 * __spf__: Sieve of smallest prime factors
