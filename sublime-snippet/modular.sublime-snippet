@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 #ifdef int
   #undef int
 #endif
@@ -77,6 +77,8 @@ public:
   friend string to_string (const modnum& a) { return to_string(int(a)); }
 };
 
+const int md = 998244353;
+
 using Mint = modnum<md>;
 
 vector<Mint> fact(1, 1);
@@ -106,8 +108,8 @@ Mint C(int n, int k) {
   return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
 ]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>modular</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<!-- <scope>source.python</scope> -->
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>modular</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
 </snippet>
