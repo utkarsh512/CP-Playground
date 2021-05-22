@@ -1,9 +1,5 @@
 <snippet>
   <content><![CDATA[
-#ifdef int
-  #undef int
-#endif
-
 template <int MOD_> struct modnum {
   static constexpr int MOD = MOD_;
   static_assert(MOD_ > 0, "MOD must be positive");
