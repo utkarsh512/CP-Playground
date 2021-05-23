@@ -20,8 +20,8 @@ struct Trie {
   void insert(int x) {
     insert(root, x, BITS - 1);
   }
-  void remove(int x) {
-    remove(root, x, BITS - 1);
+  void erase(int x) {
+    erase(root, x, BITS - 1);
   }
   int max_xor(int x) {
     return max_xor(root, x, BITS - 1);
@@ -35,13 +35,13 @@ struct Trie {
     cur->cnt[c]++;
     return insert(cur->pt[c], x, b - 1);
   }
-  void remove(Node *cur, int x, int b) {
+  void erase(Node *cur, int x, int b) {
     if (b == -1) {
       return;
     }
     bool c = (x & (1LL << b))? 1: 0;
     cur->cnt[c]--;
-    remove(cur->pt[c], x, b - 1);
+    erase(cur->pt[c], x, b - 1);
   }
   int max_xor(Node *cur, int x, int b) {
     if (b == -1) {
