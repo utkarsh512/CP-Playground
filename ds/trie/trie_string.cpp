@@ -1,50 +1,49 @@
-#undef int
-
-const int maxn = 1e5 + 10;
-
 struct Node {
-  int v;
-  int nxt[26];
-} lt[maxn * 30];
+  int cnt[26];
+  Node *pt[26];
+  Node() {
+    for (int i = 0; i < 26; i++) {
+      cnt[i] = 0;
+      pt[i] = nullptr;
+    }
+  }
+};
 
 struct Trie {
-  /**
-   * Decription: Trie data structure for strings containing only lower case letters
-   *             (Can be modified of other types of strings as well)
-   * Source: self
-   * Verification: Not done yet
-   */
-
-  int tot = 0;
-
-  int newNode() {
-    lt[tot].v = 0;
-    for (int i = 0; i < 26; i++) {
-      lt[tot].nxt[i] = -1;
-    }
-    return tot++;
+  Node *root;
+  Trie() {
+    root = new Node();
   }
-
-  Trie() {}
-
-  void update(int rt, const string& s, int v) {
-    for (int i = 0; i < sz(s); i++) {
-      int id = s[i] - 'a';
-      if (lt[rt].nxt[id] == -1) {
-        lt[rt].nxt[id] = newNode();
-      }
-      rt = lt[rt].nxt[id];
-      lt[rt].v += v;
-    }
+  void insert(string s) {
+    insert(root, s, 0);
   }
-  
-  bool search (int rt, const string& s) {
-    for (int i = 0; i < sz(s); i++) {
-      int id = s[i] - 'a';
-      int crt = lt[rt].nxt[id];
-      if (crt == -1 || lt[crt].v <= 0) return false;
-      rt = crt;
+  void erase(string s) {
+    // make sure 's' was inserted in Trie before deletion
+    erase(root, s, 0);
+  }
+  bool find(string s) {
+    return find(root, s, 0);
+  }
+  bool insert(Node *cur, string s, int idx) {
+    if (idx == sz(s)) return true;
+    int c = s[idx] - 'a';
+    if (cur->pt[c] == nullptr) {
+      cur->pt[c] = new Node();
     }
-    return true;
+    cur->cnt[c]++;
+    return insert(cur->pt[c], s, idx + 1);
+  }
+  void erase(Node *cur, string s, int idx) {
+    if (idx == sz(s)) return;
+    int c = s[idx] - 'a';
+    cur->cnt[c]--;
+    erase(cur->pt[c], s, idx + 1);
+  }
+  bool find(Node *cur, string s, int idx) {
+    if (idx == sz(s)) return true;
+    int c = s[idx] - 'a';
+    int f = cur->cnt[c];
+    if (f > 0) return find(cur->pt[c], s, idx + 1);
+    else return false;
   }
 };
