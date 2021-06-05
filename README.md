@@ -20,6 +20,9 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
 * __pbds__: Priority-based data structures
 * __fenwick__: Fenwick tree for prefix sums
 * __rmq__: Sparse table
+* #### Advanced Queues
+  * __min_queue__: Get minimum in queue in constant time
+  * __max_queue__: Get maximum in queue in constant time
 * #### Segment Tree
   * __seg__: Segment tree (without lazy propagation)
   * __lazy__: Segment tree (with lazy propagation)
