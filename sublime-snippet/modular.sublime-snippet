@@ -1,5 +1,9 @@
 <snippet>
   <content><![CDATA[
+#ifdef int
+  #undef int
+#endif
+
 template <int MOD_> struct modnum {
   static constexpr int MOD = MOD_;
   static_assert(MOD_ > 0, "MOD must be positive");
@@ -103,6 +107,8 @@ Mint C(int n, int k) {
   }
   return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
+
+using ll = int64_t;
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
   <tabTrigger>modular</tabTrigger>
