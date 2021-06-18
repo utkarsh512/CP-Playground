@@ -1,16 +1,18 @@
-struct Node {
-  int val;
-  Node *nxt;
-};
-
-Node *newNode(int x = 0) {
-  Node *p = new Node();
-  p->val = x;
-  p->nxt = nullptr;
-  return p;
-}
-
+template <class T>
 struct linked_list {
+
+  struct Node {
+    T val;
+    Node *nxt;
+  };
+
+  Node *newNode(T x = 0) {
+    Node *p = new Node();
+    p->val = x;
+    p->nxt = nullptr;
+    return p;
+  }
+
   Node **head_ref;
   int n;
 
@@ -27,32 +29,45 @@ struct linked_list {
     return n == 0;
   }
 
-  void push_front(int x) {
-    n++;
+  friend ostream& operator<<(ostream& out, linked_list& L) {
+    Node *p = *L.head_ref;
+    out << "{ ";
+    for(; p != nullptr; p = p->nxt) {
+      out << p->val << " ";
+    }
+    return out << "}";
+  }
+
+  void push_front(T x) {
     Node *p = newNode(x);
     if (empty()) {
-      head_ref = &p;
+      head_ref = (Node **) malloc(sizeof(Node *));
+      *head_ref = p;
+      n++;
       return;
     }
     p->nxt = *head_ref;
     *head_ref = p;
+    n++;
   }
 
-  void push_back(int x) {
-    n++;
+  void push_back(T x) {
     Node *p = newNode(x);
     if (empty()) {
-      head_ref = &p;
+      head_ref = (Node **) malloc(sizeof(Node *));
+      *head_ref = p;
+      n++;
       return;
     }
     Node *cur = *head_ref;
     for (; cur->nxt != nullptr; cur = cur->nxt);
     cur->nxt = p;
+    n++;
   }
 
-  void insert(int pos, int x) {
-    static_assert(pos >= 0, "Error: Attempt to insert a node at pos < 0");
-    static_assert(pos <= n, "Error: Attempt to insert a node at pos > size()");
+  void insert(int pos, T x) {
+    assert(pos >= 0);
+    assert(pos <= n);
     if (pos == 0) {
       push_front(x);
       return;
