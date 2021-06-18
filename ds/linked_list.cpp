@@ -30,6 +30,7 @@ struct linked_list {
   }
 
   friend ostream& operator<<(ostream& out, linked_list& L) {
+    if (L.empty()) return out << "{ }";
     Node *p = *L.head_ref;
     out << "{ ";
     for(; p != nullptr; p = p->nxt) {
@@ -41,7 +42,7 @@ struct linked_list {
   void push_front(T x) {
     Node *p = newNode(x);
     if (empty()) {
-      head_ref = (Node **) malloc(sizeof(Node *));
+      head_ref = new Node*();
       *head_ref = p;
       n++;
       return;
@@ -54,7 +55,7 @@ struct linked_list {
   void push_back(T x) {
     Node *p = newNode(x);
     if (empty()) {
-      head_ref = (Node **) malloc(sizeof(Node *));
+      head_ref = new Node*();
       *head_ref = p;
       n++;
       return;
@@ -86,5 +87,58 @@ struct linked_list {
     }
     p->nxt = cur->nxt;
     cur->nxt = p;
+  }
+
+  void erase(T x) {
+    if (empty()) return;
+    Node *cur = *head_ref;
+    Node *prv = nullptr;
+    while (cur != nullptr) {
+      if (cur->val == x) break;
+      prv = cur;
+      cur = cur->nxt;
+    }
+    if (cur == nullptr) return;
+    if (prv == nullptr) {
+      *head_ref = cur->nxt;
+      delete cur;
+    } else {
+      prv->nxt = cur->nxt;
+      delete cur;
+    }
+    n--;
+  }
+
+  void erase_at(int pos) {
+    assert(pos >= 0);
+    assert(pos < n);
+    Node *cur = *head_ref;
+    Node *prv = nullptr;
+    while (pos > 0) {
+      prv = cur;
+      cur = cur->nxt;
+      pos--;
+    }
+    if (prv == nullptr) {
+      *head_ref = cur->nxt;
+      delete cur;
+    } else {
+      prv->nxt = cur->nxt;
+      delete cur;
+    }
+    n--;
+  }
+
+  void clear() {
+    if (empty()) return;
+    n = 0;
+    Node *cur = *head_ref;
+    Node *prv = nullptr;
+    delete head_ref;
+    while (cur != nullptr) {
+      prv = cur;
+      cur = cur->nxt;
+      delete prv;
+    }
   }
 };
