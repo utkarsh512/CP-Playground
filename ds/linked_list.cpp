@@ -69,8 +69,7 @@ struct linked_list {
       cur = cur->nxt;
       pos--;
     }
-    Node *a = cur->nxt;
-    p->nxt = a;
+    p->nxt = cur->nxt;
     cur->nxt = p;
   }
 };
