@@ -19,7 +19,7 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
 * __dsu__: Disjoint union-find data structure
 * __pbds__: Priority-based data structures
 * __fenwick__: Fenwick tree for prefix sums
-* __rmq__: Sparse table
+* __sparse_table__: Sparse table
 * #### Advanced Queues
   * __min_queue__: Get minimum in queue in constant time
   * __max_queue__: Get maximum in queue in constant time
