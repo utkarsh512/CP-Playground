@@ -1,9 +1,6 @@
 <snippet>
   <content><![CDATA[
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
-using namespace __gnu_pbds;
 using namespace std;
 
 #define int int64_t
@@ -15,26 +12,21 @@ using namespace std;
 #define ss second
 #define pi pair<int, int>
 
-template <class T, class C = less<T>>
-using ordered_set = tree<T, null_type, C, rb_tree_tag,tree_order_statistics_node_update>;
-
-void solve() {
-}
+void solve() {}
 
 signed main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
   int tt;
   cin >> tt;
-  for (int qq = 1; qq <= tt; qq++) {
-    cout << "Case #" << qq << ": ";
+  while (tt--) {
     solve();
   }
   return 0;
 }
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>google</tabTrigger>
+  <tabTrigger>make_tt</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>

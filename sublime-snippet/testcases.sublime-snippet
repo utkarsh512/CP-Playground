@@ -1,14 +1,14 @@
 <snippet>
   <content><![CDATA[
-mt19937_64 rng(chrono::high_resolution_clock::now().time_since_epoch().count());
-
-inline long long rnd(long long l, long long r) { 
-  uniform_int_distribution<long long> dis(l, r); 
-  return dis(rng); 
+int tt;
+cin >> tt;
+for (int qq = 1; qq <= tt; qq++) {
+  cout << "Case #" << qq << ": ";
+  solve();
 }
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>rng</tabTrigger>
+  <tabTrigger>testcases</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>

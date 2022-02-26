@@ -3,6 +3,8 @@
 	"font_size": 12,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
+	"auto_complete_use_index": false,
+	"detect_indentation": false,
 	"ignored_packages":
 	[
 		"Vintage"
