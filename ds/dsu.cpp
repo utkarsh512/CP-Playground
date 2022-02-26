@@ -1,5 +1,14 @@
-struct dsu {
+class dsu {
   vector<int> parent, size;
+
+public:
+  dsu() {}
+ 
+  dsu(int n) {
+    parent.resize(n);
+    size.assign(n, 1);
+    iota(all(parent), 0);
+  }
  
   int find(int v) {
     if (v == parent[v]) return v;
@@ -17,13 +26,5 @@ struct dsu {
     } else {
       return false;
     }
-  }
-
-  dsu() {}
- 
-  dsu(int n) {
-    parent.resize(n);
-    size.assign(n, 1);
-    iota(all(parent), 0);
   }
 };
