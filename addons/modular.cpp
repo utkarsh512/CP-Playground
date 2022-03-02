@@ -1,24 +1,19 @@
-#ifdef int
-  #undef int
-#endif
-
 template <int MOD_> struct modnum {
   static constexpr int MOD = MOD_;
   static_assert(MOD_ > 0, "MOD must be positive");
 private:
-  using ll = long long;
   int v;
   static int minv(int a, int m) {
     a %= m;
     assert(a);
-    return a == 1 ? 1 : int(m - ll(minv(m, a)) * ll(m) / a);
+    return a == 1 ? 1 : m - minv(m, a) * m / a;
   }
 public:
   modnum() : v(0) {}
-  modnum(ll v_) : v(int(v_ % MOD)) { if (v < 0) v += MOD; }
+  modnum(int v_) : v(v_ % MOD) { if (v < 0) v += MOD; }
   explicit operator int() const { return v; }
-  friend std::ostream& operator << (std::ostream& out, const modnum& n) { return out << int(n); }
-  friend std::istream& operator >> (std::istream& in, modnum& n) { ll v_; in >> v_; n = modnum(v_); return in; }
+  friend std::ostream& operator << (std::ostream& out, const modnum& n) { return out << static_cast<int>(n); }
+  friend std::istream& operator >> (std::istream& in, modnum& n) { int v_; in >> v_; n = modnum(v_); return in; }
   friend bool operator == (const modnum& a, const modnum& b) { return a.v == b.v; }
   friend bool operator != (const modnum& a, const modnum& b) { return a.v != b.v; }
   modnum inv() const {
@@ -60,26 +55,26 @@ public:
     return *this;
   }
   modnum& operator *= (const modnum& o) {
-    v = int(ll(v) * ll(o.v) % MOD);
+    v = v * o.v % MOD;
     return *this;
   }
   modnum& operator /= (const modnum& o) {
     return *this *= o.inv();
   }
-  friend modnum operator ++ (modnum& a, int) { modnum r = a; ++a; return r; }
-  friend modnum operator -- (modnum& a, int) { modnum r = a; --a; return r; }
   friend modnum operator + (const modnum& a, const modnum& b) { return modnum(a) += b; }
   friend modnum operator - (const modnum& a, const modnum& b) { return modnum(a) -= b; }
   friend modnum operator * (const modnum& a, const modnum& b) { return modnum(a) *= b; }
   friend modnum operator / (const modnum& a, const modnum& b) { return modnum(a) /= b; }
 };
 
+const int md = 998244353;
+
 using Mint = modnum<md>;
 
 vector<Mint> fact(1, 1);
 vector<Mint> inv_fact(1, 1);
 
-template<const int M, typename U>
+template<int M, typename U>
 modnum<M> power(const modnum<M>& a, const U& b) {
   assert(b >= 0);
   modnum<M> x = a, res = 1;
@@ -102,11 +97,3 @@ Mint C(int n, int k) {
   }
   return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
-
-/**
- * Caution: 
- * 
- * 1. Division by Mint requires computation of its inverse which is not a constant
- *    time computation. Hence, compute the inverse once, and use it multiple times for better
- *    performance.
- */
