@@ -1,28 +1,27 @@
 template <class T>
-struct fenwick {
+class fenwick {
   vector<T> a;
   int n;
-
+  
+public:
   fenwick() {}
 
   fenwick(int n_) : n(n_) {
-    // initialization
-    a.assign(n, (T)0);
+    // check initial value
+    a.assign(n, static_cast<T>(0));
   }
 
   T query(int r) {
-    T q = 0; // out-of-bound values
+    T q = 0; // check default value of query
     for (; r >= 0; r = (r & (r + 1)) - 1) {
-      // operation
-      q += a[r];
+      q += a[r]; // check query modification
     }
     return q;
   }
 
-  void update(int idx, T val) {
-    for (; idx < n; idx = idx | (idx + 1)) {
-      // operation
-      a[idx] += val;
+  void update(int r, T del) {
+    for (; r < n; r = r | (r + 1)) {
+      a[r] += del; //check update rule
     }
   }
 };
