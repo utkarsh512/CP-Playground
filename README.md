@@ -24,8 +24,8 @@ Copy the files inside `sublime-snippet` directory to `C:\Users\{username}\AppDat
   * __min_queue__: Get minimum in queue in constant time
   * __max_queue__: Get maximum in queue in constant time
 * #### Segment Tree
-  * __seg__: Segment tree (without lazy propagation)
-  * __lazy__: Segment tree (with lazy propagation)
+  * __segtree__: Segment tree (without lazy propagation)
+  * __lazy_segtree__: Segment tree (with lazy propagation)
 * #### Sqrt Decomposition
   * __mo1__: Query structure for Mo's algorithm
   * __mo2__: For updating range to current query
