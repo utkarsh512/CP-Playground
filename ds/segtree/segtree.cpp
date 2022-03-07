@@ -39,7 +39,7 @@ public:
     if (tl == tr) {
       t[v] += inc; // check update rule
     } else {
-      int tm = (tl + tr) / 2;
+      int tm = (tl + tr) >> 1;
       if (pos <= tm) {
         update(pos, inc, v << 1, tl, tm);
       } else {
@@ -52,7 +52,7 @@ public:
   T query(int l, int r, int v = 1, int tl = 1, int tr = SZ) {
     if (l > tr || r < tl) return 0; // check out-of-index value
     if (l <= tl && tr <= r) return t[v];
-    int tm = (tl + tr) / 2;
+    int tm = (tl + tr) >> 1;
     // check query operation
     return query(l, r, v << 1, tl, tm) + query(l, r, v << 1 | 1, tm + 1, tr);
   }
