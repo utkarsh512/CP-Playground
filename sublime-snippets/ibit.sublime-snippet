@@ -1,0 +1,16 @@
+<snippet>
+  <content><![CDATA[
+#define sz(x) (int) x.size()
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define eb emplace_back
+#define ff first
+#define ss second
+#define pi pair<int, int>
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>ibit</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

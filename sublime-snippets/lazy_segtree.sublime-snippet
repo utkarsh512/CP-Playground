@@ -1,0 +1,81 @@
+<snippet>
+  <content><![CDATA[
+// lazy_segtree with one-based indexing
+// `SZ` must be a power of 2
+//
+// build:
+//    lazy_segtree<int, (1 << 18)> seg;
+//    seg.build(a); // vector `a` must be zero-indexed
+// 
+// update:
+//    seg.update(l, r, inc);
+//
+// query:
+//    seg.query(l, r)
+
+template <class T, int SZ>
+class lazy_segtree {
+  vector<T> t;
+  vector<T> lazy;
+
+  void push(int v, int tl, int tr) {
+    if (tl != tr) { // check pushing
+      lazy[v << 1] += lazy[v];
+      lazy[v << 1 | 1] += lazy[v];
+    }
+    t[v] += (tr - tl + 1) * lazy[v]; // check node update
+    lazy[v] = 0; // reset to default
+  }
+
+  void pull(int v) {
+    t[v] = t[v << 1] + t[v << 1 | 1]; // check pulling
+  }
+
+public:
+  lazy_segtree() {
+    T default_val_t = 0; // check tree default value
+    T default_val_l = 0; // check lazy default value
+
+    t.assign(SZ << 1, default_val_t);
+    lazy.assign(SZ << 1, default_val_l);
+  }
+
+  void build(const vector<T>& a) {
+    assert(sz(a) <= SZ);
+    for (int i = 0; i < sz(a); i++) {
+      t[SZ + i] = a[i];
+    }
+    for (int i = SZ - 1; i >= 1; i--) {
+      pull(i);
+    }
+  }
+
+  void update(int l, int r, T inc, int v = 1, int tl = 1, int tr = SZ) {
+    push(v, tl, tr);
+    if (l > tr || r < tl) return;
+    if (l <= tl && tr <= r) {
+      lazy[v] += inc; // check update rule
+      push(v, tl, tr);
+    } else {
+      int tm = (tl + tr) >> 1;
+      update(l, r, inc, v << 1, tl, tm);
+      update(l, r, inc, v << 1 | 1, tm + 1, tr);
+      pull(v);
+    }
+  }
+
+  T query(int l, int r, int v = 1, int tl = 1, int tr = SZ) {
+    push(v, tl, tr);
+    if (l > tr || r < tl) return 0; // check out-of-index value
+    if (l <= tl && tr <= r) return t[v];
+    int tm = (tl + tr) >> 1;
+    // check query merging
+    return query(l, r, v << 1, tl, tm) + query(l, r, v << 1 | 1, tm + 1, tr);
+  }
+};
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>lazy_segtree</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
