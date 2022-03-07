@@ -13,7 +13,7 @@
 
 template <class T, int SZ>
 class segtree {
-  T t[SZ << 1];
+  vector<T> t;
 
   void pull(int v) {
     t[v] = t[v << 1] + t[v << 1 | 1]; // check pulling
@@ -22,9 +22,7 @@ class segtree {
 public:
   segtree() {
     T default_value = 0; // check default value
-    for (int i = 0; i < (SZ << 1); i++) {
-      t[i] = default_value;
-    }
+    t.assign(SZ << 1, default_value);
   }
 
   void build(const vector<T>& a) {
